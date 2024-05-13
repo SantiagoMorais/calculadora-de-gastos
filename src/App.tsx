@@ -1,6 +1,7 @@
-import { AddNewData } from "./components/addNewData"
-import { NavBar } from "./components/navbar"
-import { Tables } from "./components/tables"
+import { AddNewData } from "@components/addNewData"
+import { NavBar } from "@components/navbar"
+import { Tables } from "@components/tables"
+
 
 function App() {
   return (

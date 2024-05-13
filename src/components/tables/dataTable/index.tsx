@@ -14,11 +14,10 @@ export const DataTable: React.FC<IDataTableProps> = ({color}) => {
         "compras",
         "05/05/24",
         "sacolao",
-        "58,9"
+        "R$58,9"
     ]
 
     return (
-        <section className="w-screen flex justify-center">
             <div className="w-full max-w-screen-xl p-4 flex flex-col">
                 <div className="w-full flex flex-col border-black  border-l">
                     <div className="flex">
@@ -43,6 +42,5 @@ export const DataTable: React.FC<IDataTableProps> = ({color}) => {
                     </div>
                 </div>
             </div>
-        </section>
     )
 }

@@ -1,0 +1,37 @@
+{
+    "categories": [
+        {
+            "type": "income",
+            "name": "entrada",
+            "category": [
+                "Salário",
+                "Bônus",
+                "Freelancer",
+                "Renda extra",
+                "Empréstimo",
+                "Outros"
+            ]
+        },
+        {
+            "type": "expense",
+            "name": "saida",
+            "category": [
+                "Moradia",
+                "Aluguel",
+                "Contas de Casa",
+                "Transporte",
+                "Alimentação",
+                "Saúde",
+                "Entretenimento",
+                "Cuidados pessoais",
+                "Educação",
+                "Viagens",
+                "Impostos",
+                "Divida",
+                "Investimento",
+                "Dízimo",
+                "Outros"
+            ]
+        }
+    ]
+}
