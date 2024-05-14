@@ -1,15 +1,12 @@
-import { AddNewData } from "@components/addNewData"
-import { NavBar } from "@components/navbar"
-import { Tables } from "@components/tables"
-
+import { AppRoutes } from "@pages/appRoutes"
+import { store } from "@store/store"
+import { Provider } from "react-redux"
 
 function App() {
   return (
-    <section className="flex flex-col">
-      <NavBar />
-      <AddNewData />
-      <Tables />
-    </section>
+    <Provider store={store}>
+      <AppRoutes/>
+    </Provider>
   )
 }
 

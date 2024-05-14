@@ -1,8 +1,13 @@
+import { useSelector } from "react-redux"
 import { DataTable } from "./dataTable"
+import { RootState } from "store/store"
 
 export const Tables = () => {
     const incomeTableColor = "bg-green-100"
     const expenseTableColor = "bg-red-100"
+    const tablesData = useSelector((state: RootState) => state.tablesData)
+    console.log(tablesData);
+    
 
     return (
         <section className="flex justify-center w-screen">

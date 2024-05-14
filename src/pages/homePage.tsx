@@ -1,9 +1,9 @@
-import App from "../App"
+import { Home } from "@components/home"
 
 export const HomePage = () => {
     return (
         <>
-            <App />
+            <Home />
         </>
     )
 }

@@ -27,7 +27,8 @@
       "@components/*": ["components/*"],
       "@json/*":["json/*"],
       "@assets/*":["assets/*"],
-      "@pages/*":["pages/*"]
+      "@pages/*":["pages/*"],
+      "@store/*":["store/*"],
     }
   },
   "include": ["src"],
