@@ -28,7 +28,7 @@
       "@json/*":["json/*"],
       "@assets/*":["assets/*"],
       "@pages/*":["pages/*"],
-      "@store/*":["store/*"],
+      "@store/*":["store/*"]
     }
   },
   "include": ["src"],

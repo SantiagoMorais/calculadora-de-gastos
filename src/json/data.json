@@ -4,11 +4,11 @@
             "type": "income",
             "name": "entrada",
             "category": [
-                "Salário",
                 "Bônus",
+                "Empréstimo",
                 "Freelancer",
                 "Renda extra",
-                "Empréstimo",
+                "Salário",
                 "Outros"
             ]
         },
@@ -16,20 +16,21 @@
             "type": "expense",
             "name": "saida",
             "category": [
-                "Moradia",
-                "Aluguel",
-                "Contas de Casa",
-                "Transporte",
                 "Alimentação",
-                "Saúde",
-                "Entretenimento",
+                "Aluguel",
+                "Compras",
+                "Contas de Casa",
                 "Cuidados pessoais",
-                "Educação",
-                "Viagens",
-                "Impostos",
-                "Divida",
-                "Investimento",
                 "Dízimo",
+                "Divida",
+                "Educação",
+                "Entretenimento",
+                "Impostos",
+                "Investimento",
+                "Moradia",
+                "Saúde",
+                "Transporte",
+                "Viagens",
                 "Outros"
             ]
         }

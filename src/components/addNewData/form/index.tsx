@@ -3,17 +3,13 @@ import data from "@json/data.json";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
-
-interface IFormData {
-    valueOrigin: string;
-    category: string;
-    date: string;
-    description: string;
-    value: number;
-}
+import { INewData, addNewData } from "@store/reducers/tableData";
+import { useDispatch } from "react-redux";
+import { format } from "date-fns";
 
 export const Form = () => {
     const [valueOrigin, setValueOrigin] = useState<string>("");
+    const dispatch = useDispatch();
 
     const handleValueOrigin = (origin: string) => {
         setValueOrigin(origin);
@@ -23,10 +19,17 @@ export const Form = () => {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<IFormData>();
+    } = useForm<INewData>();
 
-    const onSubmit: SubmitHandler<IFormData> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<INewData> = (formData) => {
+        const formattedDate: string = format(new Date(formData.date), "dd/MM/yy")
+        const formattedValue: string = `R$${formData.value}`
+        const serializedFormData: INewData = {
+            ...formData,
+            date: formattedDate,
+            value: formattedValue
+        }
+        dispatch(addNewData(serializedFormData))
     }
 
     return (
@@ -62,7 +65,8 @@ export const Form = () => {
                                 <option value="">Selecione categoria</option>
                                 {data.categories
                                     .find((category) => category.type === valueOrigin)
-                                    ?.category.map((item, index) => (
+                                    ?.category
+                                    .map((item, index) => (
                                         <option key={index} value={item}>
                                             {item}
                                         </option>
@@ -106,13 +110,13 @@ export const Form = () => {
                                         message: "Escreva a descrição"
                                     },
                                     maxLength: {
-                                        value: 50,
-                                        message: "Até 50 Caracteres"
+                                        value: 20,
+                                        message: "Até 20 Caracteres",
                                     }
                                 })}
                                 id="description"
-                                placeholder="50 Caracteres"
-                                maxLength={50}
+                                placeholder="20 Caracteres"
+                                maxLength={20}
                                 className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
 
                             <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>

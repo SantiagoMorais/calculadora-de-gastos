@@ -6,7 +6,8 @@ export interface INewData {
     category: string,
     date: string,
     description: string,
-    value: number,
+    value: string,
+    valueOrigin: string;
 }
 
 const initialState: INewData[] = []
@@ -16,8 +17,7 @@ const newDataSlice = createSlice({
     initialState,
     reducers: {
         addNewData (state, action: PayloadAction<INewData>) {
-            // state.push(action.payload);
-            return [...state, action.payload]
+            return [...state, action.payload].map((item, index) => ({ ...item, id: index }));
         },
         removeTableData (state, action: PayloadAction<number>) {
             const idToRemove = action.payload;
