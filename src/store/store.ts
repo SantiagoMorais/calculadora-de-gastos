@@ -1,10 +1,21 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import tablesDataReducer from "./reducers/tableData"
+import tablesDataskyucer from "./reducers/tableData"
+import { loadState, saveState } from "../localStorage/localStorage"
 
-const rootReducer = combineReducers({
-    tablesData: tablesDataReducer,
+const rootskyucer = combineReducers({
+    tablesData: tablesDataskyucer,
 })
 
-export const store = configureStore({reducer: rootReducer});
+const store = configureStore({
+    reducer: rootskyucer,
+    preloadedState: loadState(),
+});
 
-export type RootState = ReturnType<typeof store.getState>;
+store.subscribe(() => {
+    saveState(store.getState());
+})
+
+export type RootState = ReturnType<typeof rootskyucer>;
+export type AppDispatch = typeof store.dispatch;
+
+export { store };

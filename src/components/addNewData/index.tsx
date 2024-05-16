@@ -5,17 +5,17 @@ import { Form } from "./form";
 
 export const AddNewData = () => {
     const [openWindow, setOpenWindow] = useState(false);
-    
+
     const handleOpenWindow = () => {
         setOpenWindow(!openWindow)
     }
-    
+
     return (
         <section className="w-screen flex flex-col items-center gap-4">
             <div className="w-full max-w-screen-xl px-4 flex items-center gap-2 justify-center">
-                <button 
-                onClick={() => handleOpenWindow()}
-                className="border w-7 h-7 flex justify-center items-center rounded-md border-black duration-300 hover:shadow-inner hover: hover:text-blue-600 hover:border-blue-600">
+                <button
+                    onClick={() => handleOpenWindow()}
+                    className="border w-7 h-7 flex justify-center items-center rounded-md border-black duration-300 hover:shadow-inner hover: hover:text-white hover:border-white hover:shadow-sky-700 hover:bg-sky-300">
                     <FontAwesomeIcon icon={faAdd} />
                 </button>
                 <p className="font-medium">Adicione um novo dado</p>

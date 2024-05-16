@@ -16,10 +16,10 @@ const newDataSlice = createSlice({
     name: "newData",
     initialState,
     reducers: {
-        addNewData (state, action: PayloadAction<INewData>) {
+        addNewData(state, action: PayloadAction<INewData>) {
             return [...state, action.payload].map((item, index) => ({ ...item, id: index }));
         },
-        removeTableData (state, action: PayloadAction<number>) {
+        removeTableData(state, action: PayloadAction<number>) {
             const idToRemove = action.payload;
             return state.filter(data => data.id !== idToRemove)
         }

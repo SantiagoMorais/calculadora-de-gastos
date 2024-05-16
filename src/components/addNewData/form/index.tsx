@@ -36,7 +36,7 @@ export const Form = () => {
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col w-full items-center gap-2">
             <div className="flex gap-4">
                 {data.categories.map((category) => (
-                    <label key={category.type} htmlFor={category.type} className="flex gap-2 items-center capitalize">
+                    <label key={category.type} htmlFor={category.type} className="capitalize border border-sky-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-sky-500 duration-500 hover:bg-sky-300 hover:border-white hover:text-white hover:shadow-inner hover:shadow-sky-700">
                         {category.name}
                         <input
                             type="radio"
@@ -45,6 +45,7 @@ export const Form = () => {
                             value={category.type}
                             onChange={() => handleValueOrigin(category.type)}
                             checked={valueOrigin === category.type}
+                            className="duration-500 appearance-none w-4 h-4 border border-sky-500 rounded checked:bg-sky-200 checked:border-sky-400 checked:shadow-inner checked:shadow-sky-500 focus:outline-none"
                         />
                     </label>
                 ))}
@@ -74,7 +75,7 @@ export const Form = () => {
                                 }
                             </select>
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.category?.message}
                             </span>
@@ -92,7 +93,7 @@ export const Form = () => {
                                 id="date"
                                 className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.date?.message}
                             </span>
@@ -119,7 +120,7 @@ export const Form = () => {
                                 maxLength={20}
                                 className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.description?.message}
                             </span>
@@ -141,7 +142,7 @@ export const Form = () => {
                                 maxLength={50}
                                 className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.value?.message}
                             </span>
@@ -150,7 +151,7 @@ export const Form = () => {
                 )}
             </div>
 
-            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-black rounded-md px-4 mt-6 duration-500 hover:shadow-inner hover: hover:text-blue-600 hover:border-blue-600`}>
+            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-sky-500 text-sky-500 rounded-md px-4 mt-6 duration-500 hover: hover:text-white hover:border-white hover:bg-sky-300 hover:shadow-inner hover:shadow-sky-700`}>
                 Adicionar
             </button>
         </form>
