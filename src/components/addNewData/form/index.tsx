@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import data from "@json/data.json";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamation } from "@fortawesome/free-solid-svg-icons";
 import { INewData, addNewData } from "@store/reducers/tableData";
 import { useDispatch } from "react-redux";
-import { format } from "date-fns";
+import { addDays, format } from "date-fns";
 
 export const Form = () => {
     const [valueOrigin, setValueOrigin] = useState<string>("");
@@ -22,8 +22,11 @@ export const Form = () => {
     } = useForm<INewData>();
 
     const onSubmit: SubmitHandler<INewData> = (formData) => {
-        const formattedDate: string = format(new Date(formData.date), "dd/MM/yy")
-        const formattedValue: string = `R$${formData.value}`
+        const date = new Date(formData.date);
+        const adjustedDate = addDays(date, 1);
+
+        const formattedDate: string = format(adjustedDate, "dd/MM/yy");
+        const formattedValue: string = `R$${parseFloat(formData.value).toFixed(2).replace(',', '.')}`;
         const serializedFormData: INewData = {
             ...formData,
             date: formattedDate,
@@ -31,6 +34,13 @@ export const Form = () => {
         }
         dispatch(addNewData(serializedFormData))
     }
+
+    useEffect(() => {
+        const categoryElement = document.getElementById("category") as HTMLSelectElement;
+        if (categoryElement) {
+            categoryElement.selectedIndex = 0;
+        }
+    }, [valueOrigin]);
 
     return (
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col w-full items-center gap-2">

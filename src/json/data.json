@@ -7,7 +7,7 @@
                 "Bônus",
                 "Empréstimo",
                 "Freelancer",
-                "Renda extra",
+                "Renda Extra",
                 "Salário",
                 "Outros"
             ]
@@ -18,9 +18,10 @@
             "category": [
                 "Alimentação",
                 "Aluguel",
+                "Cartão de Crédito",
                 "Compras",
                 "Contas de Casa",
-                "Cuidados pessoais",
+                "Cuidados Pessoais",
                 "Dízimo",
                 "Divida",
                 "Educação",

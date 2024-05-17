@@ -2,6 +2,7 @@ import { useSelector } from "react-redux"
 import { DataTable } from "./dataTable"
 import { RootState } from "store/store"
 import { INewData } from "@store/reducers/tableData"
+import { parse } from "date-fns"
 
 export const Tables = () => {
     const incomeTableColor = "bg-green-200"
@@ -9,8 +10,16 @@ export const Tables = () => {
 
     const tablesData = useSelector((state: RootState) => state.tablesData)
 
-    const incomeData = tablesData.filter(data => data.valueOrigin === "income")
-    const expenseData = tablesData.filter(data => data.valueOrigin === "expense")
+    const sortDataByDate = (data: INewData[]) => {
+        return data.sort((a, b) => {
+            const dateA = parse(a.date, "dd/MM/yy", new Date());
+            const dateB = parse(b.date, "dd/MM/yy", new Date());
+            return dateA.getTime() - dateB.getTime();
+        });
+    };
+
+    const incomeData = sortDataByDate(tablesData.filter(data => data.valueOrigin === "income"));
+    const expenseData = sortDataByDate(tablesData.filter(data => data.valueOrigin === "expense"));
 
     const calculateTotal = (data: INewData[], valueOrigin: string) => {
         return data

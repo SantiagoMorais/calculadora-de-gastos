@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const NavBar = () => {
     const items = [
-        "home",
-        "categorias",
+        "Tabelas",
         "lembretes",
+        "Informações",
     ]
 
     return (
