@@ -11,7 +11,7 @@ export const AddNewData = () => {
     }
 
     return (
-        <section className="w-screen flex flex-col items-center gap-4">
+        <section className="w-screen flex flex-col items-center">
             <div className="w-full max-w-screen-xl px-4 flex items-center gap-2 justify-center">
                 <button
                     onClick={() => handleOpenWindow()}
@@ -21,7 +21,7 @@ export const AddNewData = () => {
                 <p className="font-medium">Adicione um novo dado</p>
             </div>
 
-            <div className={`w-full max-w-screen-xl px-4 flex flex-col items-center gap-2 justify-center duration-500 transition-all overflow-hidden opacity-0 ${openWindow ? "max-h-screen opacity-100 md:max-h-48" : "max-h-0"}`}
+            <div className={`w-full max-w-screen-xl px-4 flex flex-col items-center gap-2 justify-center duration-500 transition-all overflow-hidden opacity-0 ${openWindow ? "mt-4 max-h-screen opacity-100 md:max-h-48" : "max-h-0"}`}
             >
                 <Form />
             </div>

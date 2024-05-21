@@ -1,11 +1,11 @@
-import { AppRoutes } from "@pages/appRoutes"
+import { Home } from "@components/home"
 import { store } from "@store/store"
 import { Provider } from "react-redux"
 
 function App() {
   return (
     <Provider store={store}>
-      <AppRoutes />
+      <Home />
     </Provider>
   )
 }

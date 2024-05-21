@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const NavBar = () => {
     const items = [
-        "Tabelas",
-        "lembretes",
-        "Informações",
+        { name: "tabelas", link: "tables" },
+        { name: "lembretes", link: "reminders" },
+        { name: "informações", link: "informations" }
     ]
 
     return (
@@ -17,9 +17,11 @@ export const NavBar = () => {
                 </h1>
                 <ul className="flex gap-3 flex-wrap justify-center">
                     {items.map(item =>
-                        <li key={item} className="cursor-pointer duration-300 px-2 py-1 rounded-lg capitalize hover:shadow-inner hover:bg-sky-300 hover:shadow-sky-700 hover:text-white">
-                            {item}
-                        </li>
+                        <a href={`#${item.link}`}>
+                            <li key={item.name} className="cursor-pointer duration-300 px-2 py-1 rounded-lg capitalize hover:shadow-inner hover:bg-sky-300 hover:shadow-sky-700 hover:text-white">
+                                {item.name}
+                            </li>
+                        </a>
                     )}
                 </ul>
             </div>

@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface INewData {
-    id: number;
+    id: number,
     category: string,
     date: string,
     description: string,
     value: string,
-    valueOrigin: string;
+    valueOrigin: string,
 }
 
 const initialState: INewData[] = []

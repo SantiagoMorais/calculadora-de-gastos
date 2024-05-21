@@ -43,7 +43,7 @@ export const Tables = () => {
     };
 
     return (
-        <section className="flex flex-col items-center w-screen pb-4">
+        <section id="tables" className="flex flex-col items-center w-screen pb-4">
             <div
                 id="pdfContent"
                 className="w-full max-w-screen-xl flex flex-wrap justify-center p-4 gap-y-4 gap-x-1">

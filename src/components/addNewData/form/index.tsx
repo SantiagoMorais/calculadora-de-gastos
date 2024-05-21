@@ -46,7 +46,7 @@ export const Form = () => {
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col w-full items-center gap-2">
             <div className="flex gap-4">
                 {data.categories.map((category) => (
-                    <label key={category.type} htmlFor={category.type} className="capitalize border border-sky-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-sky-500 duration-500 hover:bg-sky-300 hover:border-white hover:text-white hover:shadow-inner hover:shadow-sky-700">
+                    <label key={category.type} htmlFor={category.type} className={`capitalize border border-sky-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-sky-500 duration-500 hover:bg-sky-300 hover:border-white hover:text-white hover:shadow-inner hover:shadow-sky-700 ${category.type === valueOrigin && "bg-sky-300 border-white text-white shadow-inner shadow-sky-700"}`}>
                         {category.name}
                         <input
                             type="radio"
@@ -55,7 +55,7 @@ export const Form = () => {
                             value={category.type}
                             onChange={() => handleValueOrigin(category.type)}
                             checked={valueOrigin === category.type}
-                            className="duration-500 appearance-none w-4 h-4 border border-sky-500 rounded checked:bg-sky-200 checked:border-sky-400 checked:shadow-inner checked:shadow-sky-500 focus:outline-none"
+                            className="appearance-none "
                         />
                     </label>
                 ))}
@@ -161,7 +161,7 @@ export const Form = () => {
                 )}
             </div>
 
-            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-sky-500 text-sky-500 rounded-md px-4 mt-6 duration-500 hover: hover:text-white hover:border-white hover:bg-sky-300 hover:shadow-inner hover:shadow-sky-700`}>
+            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-sky-500 text-sky-500 rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-sky-300 hover:shadow-inner hover:shadow-sky-700`}>
                 Adicionar
             </button>
         </form>
