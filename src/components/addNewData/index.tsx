@@ -15,7 +15,7 @@ export const AddNewData = () => {
             <div className="w-full max-w-screen-xl px-4 flex items-center gap-2 justify-center">
                 <button
                     onClick={() => handleOpenWindow()}
-                    className="border w-7 h-7 flex justify-center items-center rounded-md border-black duration-300 hover:shadow-inner hover: hover:text-white hover:border-white hover:shadow-sky-700 hover:bg-sky-300">
+                    className="border w-7 h-7 flex justify-center items-center rounded-md border-white duration-300 hover:shadow-inner hover: hover:text-white hover:border-white hover:shadow-lime-700 hover:bg-lime-400">
                     <FontAwesomeIcon icon={faAdd} />
                 </button>
                 <p className="font-medium">Adicione um novo dado</p>

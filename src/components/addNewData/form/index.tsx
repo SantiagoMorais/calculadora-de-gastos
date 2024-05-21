@@ -46,7 +46,7 @@ export const Form = () => {
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col w-full items-center gap-2">
             <div className="flex gap-4">
                 {data.categories.map((category) => (
-                    <label key={category.type} htmlFor={category.type} className={`capitalize border border-sky-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-sky-500 duration-500 hover:bg-sky-300 hover:border-white hover:text-white hover:shadow-inner hover:shadow-sky-700 ${category.type === valueOrigin && "bg-sky-300 border-white text-white shadow-inner shadow-sky-700"}`}>
+                    <label key={category.type} htmlFor={category.type} className={`capitalize border border-lime-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-lime-500 duration-500 hover:bg-lime-400 hover:border-white hover:text-white hover:shadow-inner hover:shadow-lime-700 ${category.type === valueOrigin && "bg-lime-400 border-white text-white shadow-inner shadow-lime-700"}`}>
                         {category.name}
                         <input
                             type="radio"
@@ -55,7 +55,7 @@ export const Form = () => {
                             value={category.type}
                             onChange={() => handleValueOrigin(category.type)}
                             checked={valueOrigin === category.type}
-                            className="appearance-none "
+                            className="appearance-none"
                         />
                     </label>
                 ))}
@@ -71,21 +71,21 @@ export const Form = () => {
                                     required: "Selecione a categoria"
                                 })}
                                 id="category"
-                                className="p-1 border border-black mb-1 rounded-md h-8 mt-1"
+                                className="bg-transparent p-1 border mb-1 rounded-md h-8 mt-1"
                             >
-                                <option value="">Selecione categoria</option>
+                                <option value="" className="bg-lime-950">Selecione categoria</option>
                                 {data.categories
                                     .find((category) => category.type === valueOrigin)
                                     ?.category
                                     .map((item, index) => (
-                                        <option key={index} value={item}>
+                                        <option key={index} value={item} className="bg-lime-950">
                                             {item}
                                         </option>
                                     ))
                                 }
                             </select>
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.category?.message}
                             </span>
@@ -101,9 +101,9 @@ export const Form = () => {
 
                                 })}
                                 id="date"
-                                className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
+                                className="bg-transparent w-full border border-white mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.date?.message}
                             </span>
@@ -128,9 +128,9 @@ export const Form = () => {
                                 id="description"
                                 placeholder="20 Caracteres"
                                 maxLength={20}
-                                className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
+                                className="w-full border bg-transparent mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.description?.message}
                             </span>
@@ -150,9 +150,9 @@ export const Form = () => {
                                 id="value"
                                 placeholder="Valor"
                                 maxLength={50}
-                                className="w-full border border-black mb-1 p-1 rounded-md h-8 mt-1" />
+                                className="w-full border bg-transparent mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-sky-600 px-2 rounded-md text-sky-600 bg-sky-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.value?.message}
                             </span>
@@ -161,7 +161,7 @@ export const Form = () => {
                 )}
             </div>
 
-            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-sky-500 text-sky-500 rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-sky-300 hover:shadow-inner hover:shadow-sky-700`}>
+            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-lime-500 text-lime-500 rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-400 hover:shadow-inner hover:shadow-lime-700`}>
                 Adicionar
             </button>
         </form>

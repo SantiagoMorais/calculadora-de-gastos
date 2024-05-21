@@ -4,4 +4,11 @@
 
 html {
     scroll-behavior: smooth;
+    color: #ffffff;
+    background-color: #191A19;
+    font-family: "Roboto Slab", serif;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
 }

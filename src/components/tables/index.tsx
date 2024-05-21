@@ -5,8 +5,8 @@ import { INewData } from "@store/reducers/tableData"
 import { parse } from "date-fns"
 
 export const Tables = () => {
-    const incomeTableColor = "bg-green-200"
-    const expenseTableColor = "bg-red-200"
+    const incomeTableColor = `bg-lime-800`;
+    const expenseTableColor = `bg-red-800`
 
     const tablesData = useSelector((state: RootState) => state.tablesData)
 
@@ -61,14 +61,14 @@ export const Tables = () => {
                 <div className="w-full max-w-3xl flex border-black justify-center">
                     <div className="flex flex-col items-center gap-1">
                         <h3 className=" text-center  break-all text-xl capitalize">Saldo final:</h3>
-                        <p className="text-center capitalize break-all font-normal text-3xl border px-3 py-1 rounded-lg border-sky-700 text-white bg-sky-300 shadow-inner shadow-sky-700"
+                        <p className="text-center capitalize break-all font-normal text-3xl border px-3 py-1 rounded-lg border-lime-700 text-white bg-lime-400 shadow-inner shadow-lime-700"
                         >R$ {finalBalance()}</p>
                     </div>
                 </div>
             </div>
             <button
                 onClick={() => createAPdfFile()}
-                className="w-fit font-medium text-xl capitalize border-sky-500 border mt-4  text-sky-500 p-2 rounded-md duration-500 hover:bg-sky-300 hover:text-white hover:border-white hover:shadow-inner hover:shadow-sky-700"
+                className="w-fit font-medium text-xl capitalize border-lime-500 border mt-4  text-lime-500 p-2 rounded-md duration-500 hover:bg-lime-400 hover:text-white hover:border-white hover:shadow-inner hover:shadow-lime-700"
             >
                 Baixar Como PDF
             </button>
