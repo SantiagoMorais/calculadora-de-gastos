@@ -16,7 +16,7 @@ export const NavBar = () => {
                 </h1>
                 <ul className="flex gap-3 flex-wrap justify-center">
                     {items.map(item =>
-                        <a href={`#${item.link}`}>
+                        <a href={`#${item.link}`} key={item.name}>
                             <li key={item.name} className="cursor-pointer duration-300 px-2 py-1 rounded-lg capitalize hover:shadow-inner hover:bg-lime-400 hover:shadow-lime-700 hover:text-white">
                                 {item.name}
                             </li>

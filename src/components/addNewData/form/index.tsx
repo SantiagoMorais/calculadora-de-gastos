@@ -98,7 +98,6 @@ export const Form = () => {
                                 {...register("date", {
                                     required: "Selecione uma data",
                                     valueAsDate: true,
-
                                 })}
                                 id="date"
                                 className="bg-transparent w-full border border-white mb-1 p-1 rounded-md h-8 mt-1" />

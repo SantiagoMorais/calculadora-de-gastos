@@ -37,17 +37,17 @@
         }
     ],
     "months": [
-        "Janeiro",
-        "Fevereiro",
-        "Março",
-        "Abril",
-        "Maio",
-        "Junho",
-        "Julho",
-        "Agosto",
-        "Setembro",
-        "Outubro",
-        "Novembro",
-        "Dezembro"
+        { "name": "Janeiro", "id": "01" },
+        { "name": "Fevereiro", "id": "02" },
+        { "name": "Março", "id": "03" },
+        { "name": "Abril", "id": "04" },
+        { "name": "Maio", "id": "05" },
+        { "name": "Junho", "id": "06" },
+        { "name": "Julho", "id": "07" },
+        { "name": "Agosto", "id": "08" },
+        { "name": "Setembro", "id": "09" },
+        { "name": "Outubro", "id": "10" },
+        { "name": "Novembro", "id": "11" },
+        { "name": "Dezembro", "id": "12" }
     ]
 }
