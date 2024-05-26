@@ -11,10 +11,14 @@ interface IDataTableProps {
 export const DataTable: React.FC<IDataTableProps> = ({ color, info }) => {
     const dispatch = useDispatch();
 
-    const totalValue = info.reduce((acc, currentValue) => {
-        const value = Number(currentValue.value.replace("R$", ""));
-        return acc + value
-    }, 0)
+    const totalValue = () => {
+        const calculation = info.reduce((acc, currentValue) => {
+            const value = Number(currentValue.value.replace("R$", ""));
+            return acc + value
+        }, 0);
+        return calculation.toFixed(2)
+    }
+
 
     const handleDeleteData = (dataId: number) => {
         dispatch(removeTableData(dataId))
@@ -59,7 +63,7 @@ export const DataTable: React.FC<IDataTableProps> = ({ color, info }) => {
 
                 <div className="flex">
                     <p className="w-3/4 text-center border-b border-r border-white capitalize break-all">total</p>
-                    <p className={`text-center w-1/4 border-b border-r border-white ${color} break-all`}>R${totalValue}</p>
+                    <p className={`text-center w-1/4 border-b border-r border-white ${color} break-all`}>R${totalValue()}</p>
                 </div>
             </div>
         </div>

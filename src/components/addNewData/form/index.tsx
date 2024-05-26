@@ -46,7 +46,7 @@ export const Form = () => {
         <form noValidate onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col w-full items-center gap-2">
             <div className="flex gap-4">
                 {data.categories.map((category) => (
-                    <label key={category.type} htmlFor={category.type} className={`capitalize border border-lime-500 w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-lime-500 duration-500 hover:bg-lime-400 hover:border-white hover:text-white hover:shadow-inner hover:shadow-lime-700 ${category.type === valueOrigin && "bg-lime-400 border-white text-white shadow-inner shadow-lime-700"}`}>
+                    <label key={category.type} htmlFor={category.type} className={`capitalize border border-white w-28 cursor-pointer rounded-md flex items-center justify-center gap-2 text-white duration-500 hover:bg-lime-500 hover:border-white hover:text-white hover:shadow-inner hover:shadow-lime-700 ${category.type === valueOrigin && "bg-lime-500 border-white text-white shadow-inner shadow-lime-700"}`}>
                         {category.name}
                         <input
                             type="radio"
@@ -85,7 +85,7 @@ export const Form = () => {
                                 }
                             </select>
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.category && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.category?.message}
                             </span>
@@ -102,7 +102,7 @@ export const Form = () => {
                                 id="date"
                                 className="bg-transparent w-full border border-white mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.date && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.date?.message}
                             </span>
@@ -129,7 +129,7 @@ export const Form = () => {
                                 maxLength={20}
                                 className="w-full border bg-transparent mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.description && "opacity-100 duration-500 max-h-7 py-1"}  border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.description?.message}
                             </span>
@@ -151,7 +151,7 @@ export const Form = () => {
                                 maxLength={50}
                                 className="w-full border bg-transparent mb-1 p-1 rounded-md h-8 mt-1" />
 
-                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-lime-600 px-2 rounded-md text-lime-600 bg-lime-50`}>
+                            <span className={`text-xs opacity-0 max-h-0 ${errors.value && "opacity-100 duration-500 max-h-7 py-1"} border border-red-600 px-2 rounded-md text-red-600 bg-red-50`}>
                                 <FontAwesomeIcon icon={faExclamation} className="pr-1 " />
                                 {errors.value?.message}
                             </span>
@@ -160,7 +160,7 @@ export const Form = () => {
                 )}
             </div>
 
-            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-lime-500 text-lime-500 rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-400 hover:shadow-inner hover:shadow-lime-700`}>
+            <button type="submit" className={`opacity-0 ${valueOrigin && "opacity-100"} border border-lime-500 text-lime-500 rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-500 hover:shadow-inner hover:shadow-lime-700`}>
                 Adicionar
             </button>
         </form>

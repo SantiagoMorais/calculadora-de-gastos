@@ -24,7 +24,7 @@ export const Tables = () => {
             return dateA.getTime() - dateB.getTime();
         });
     };
-    
+
     const filterByDate = (data: INewData[]) => {
         const monthId = getMonthIdByName(currentDate.currentMonth);
         const yearShort = currentDate.currentYear.slice(-2);
@@ -77,14 +77,14 @@ export const Tables = () => {
                 <div className="w-full max-w-3xl flex border-black justify-center">
                     <div className="flex flex-col items-center gap-1">
                         <h3 className=" text-center  break-all text-xl capitalize">Saldo final:</h3>
-                        <p className="text-center capitalize break-all font-normal text-3xl border px-3 py-1 rounded-lg border-lime-700 text-white bg-lime-400 shadow-inner shadow-lime-700"
+                        <p className="text-center capitalize break-all font-normal text-3xl border px-3 py-1 rounded-lg border-lime-700 text-white bg-lime-500 shadow-inner shadow-lime-700"
                         >R$ {finalBalance()}</p>
                     </div>
                 </div>
             </div>
             <button
                 onClick={() => createAPdfFile()}
-                className="w-fit font-medium text-xl capitalize border-lime-500 border mt-4  text-lime-500 p-2 rounded-md duration-500 hover:bg-lime-400 hover:text-white hover:border-white hover:shadow-inner hover:shadow-lime-700"
+                className="w-fit font-medium text-xl capitalize border-lime-500 border mt-4  text-lime-500 p-2 rounded-md duration-500 hover:bg-lime-500 hover:text-white hover:border-white hover:shadow-inner hover:shadow-lime-700"
             >
                 Baixar Como PDF
             </button>
