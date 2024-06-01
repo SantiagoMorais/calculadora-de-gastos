@@ -28,7 +28,8 @@
       "@json/*":["json/*"],
       "@assets/*":["assets/*"],
       "@pages/*":["pages/*"],
-      "@store/*":["store/*"]
+      "@store/*":["store/*"],
+      "@hooks/*":["hooks/*"]
     }
   },
   "include": ["src"],

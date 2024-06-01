@@ -4,7 +4,9 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 export interface INewData {
     id: number,
     category: string,
-    date: string,
+    day: number,
+    month: number,
+    year: number,
     description: string,
     value: string,
     valueOrigin: string,

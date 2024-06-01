@@ -1,15 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import data from "@json/data.json"
 
+export interface ICurrentMonth {
+    number: number,
+    month: string
+}
 export interface ICurrentDate {
-    currentMonth: string,
-    currentYear: string
+    currentMonth: ICurrentMonth,
+    currentYear: number
 }
 
 const date = new Date();
+const year = date.getFullYear();
 const currentDate: ICurrentDate = {
-    currentMonth: (date.getMonth() + 1).toString(),
-    currentYear: (date.getFullYear()).toString()
+    currentMonth: {
+        number: data.months[date.getMonth()].id,
+        month: data.months[date.getMonth()].name,
+    },
+    currentYear: year,
 }
 
 const initialState: ICurrentDate = currentDate;
