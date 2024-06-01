@@ -1,13 +1,14 @@
-import { faSquare, faSquareCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCircle, faSquare, faSquareCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IStickyNotes, removeStickyNote, toggleCheckedStickyNote } from "@store/reducers/stickyNotes"
 import { useDispatch } from "react-redux";
 
 interface IStickyNotesProps {
     stickyNotes: IStickyNotes[],
+    checkedOrUnchecked: string,
 }
 
-export const StickyNote = ({stickyNotes}: IStickyNotesProps) => {
+export const StickyNote: React.FC<IStickyNotesProps> = ({stickyNotes, checkedOrUnchecked}) => {
     const dispatch = useDispatch();
 
     const renderDate = (day: number, month: number, year: number) => {
@@ -23,11 +24,19 @@ export const StickyNote = ({stickyNotes}: IStickyNotesProps) => {
     }
 
     return (
-        <div className="border-t border-b max-h-full overflow-y-scroll">
+        <>
+            {checkedOrUnchecked === "checked" &&
+                <h2 className="capitalize  flex items-center gap-2 rounded-md px-2 font-medium">
+                    <FontAwesomeIcon icon={faCircle} className="size-3"/>
+                    {checkedOrUnchecked === "checked" ? "Lembretes finalizados" : "Adicione lembretes"}
+                    <FontAwesomeIcon icon={faCircle} className="size-3"/>
+                </h2>
+            }
+        <div className="border-t border-b max-h-full overflow-y-scroll flex-1 border-l rounded-md overflow-hidden">
             {stickyNotes && stickyNotes.map((item, index) =>
                 <div 
                 key={index}
-                className="flex odd:bg-zinc-700 border-r border-l border-b last:border-b-0">
+                className="flex odd:bg-zinc-700 border-r">
                     <button
                         title={item.checked ? "Adicione a Tarefas Não Concluídas ❌" : "Coincluir Lembrete ✅"}
                         onClick={() => handleCheckStickyNote(item.id)}
@@ -42,12 +51,13 @@ export const StickyNote = ({stickyNotes}: IStickyNotesProps) => {
                     </button>
                     <div
                         key={index}
-                        className="flex w-full justify-between last:border-b-0">
+                        className="flex w-full justify-between">
                         <p className="capitalize">{item.note}</p>
                         <p className="px-2 text-center border-l">{renderDate(item.date.day, item.date.month, item.date.year)}</p>
                     </div>
                 </div>
             )}
         </div>
+        </>
     )
 }

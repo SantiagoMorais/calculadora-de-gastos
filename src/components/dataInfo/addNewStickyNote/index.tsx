@@ -7,14 +7,16 @@ import { SubmitHandler, useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux";
 import { StickyNote } from "../stickyNote";
 
-export const AddNewStickyNote = () => {
+interface IAddNewStickyNoteProps {
+    defaultStyle: string,
+}
+
+export const AddNewStickyNote: React.FC<IAddNewStickyNoteProps> = ({defaultStyle}) => {
     const dispatch = useDispatch();
     const stickyNotes = useSelector((state: RootState) => state.stickyNotes)
     const uncheckedStickyNotes = stickyNotes.filter(data => data.checked === false);
-    // const checkedStickyNotes = stickyNotes.filter(data => data.checked === true);
+    const checkedStickyNotes = stickyNotes.filter(stickyNote => stickyNote.checked === true)
 
-    console.log(uncheckedStickyNotes);
-    
     const {
         register,
         handleSubmit,
@@ -35,7 +37,7 @@ export const AddNewStickyNote = () => {
     }, [setValue]);
 
     return (
-        <section id="addNewStickyNites" className="flex-1 h-72 bg-zinc-900 rounded-md border border-white p-2 flex min-w-60 flex-col gap-2">
+        <section id="addNewStickyNites" className={`${defaultStyle}`}>
             <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Adicione lembretes / tarefas</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="relative">
                 <div className="flex gap-1 items-center mb-1">
@@ -64,7 +66,8 @@ export const AddNewStickyNote = () => {
                 </span>
             </form>
             
-            <StickyNote stickyNotes={uncheckedStickyNotes}/>
+            <StickyNote stickyNotes={uncheckedStickyNotes} checkedOrUnchecked="unchecked"/>
+            <StickyNote stickyNotes={checkedStickyNotes} checkedOrUnchecked="checked"/>
         </section>
     )
 }

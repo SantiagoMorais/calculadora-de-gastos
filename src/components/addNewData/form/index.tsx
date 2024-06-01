@@ -25,11 +25,15 @@ export const Form = () => {
     } = useForm<INewData>();
 
     const onSubmit: SubmitHandler<INewData> = (formData) => {
+        console.log(formData);
         dispatch(addNewData(formData))
     }
 
     const calculateTheDaysOfTheMonth = () => {
-        const date = new Date(currentDate.currentYear, currentDate.currentMonth.number, 0).getDate();
+        const year = currentDate.currentYear;
+        const month = currentDate.currentMonth.number;
+        const day = 0;
+        const date = new Date(year, month, day).getDate();
         return date
     }
 
@@ -191,11 +195,13 @@ export const Form = () => {
                 )}
             </div>
 
-            <button 
-            type="submit" 
-            className={`opacity-0 ${valueOrigin && "opacity-100"} border border-white bg-zinc-800 text-white rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-500 hover:shadow-inner hover:shadow-lime-700`}>
-                Adicionar
-            </button>
+            <div className="flex gap-5 flex-wrap">
+                <button
+                    type="submit"
+                    className={`opacity-0 ${valueOrigin && "opacity-100"} border border-white bg-zinc-800 text-white rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-500 hover:shadow-inner hover:shadow-lime-700`}>
+                    Adicionar
+                </button>
+            </div>
         </form>
     );
 };

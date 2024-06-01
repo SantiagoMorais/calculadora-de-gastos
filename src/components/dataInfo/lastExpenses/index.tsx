@@ -2,7 +2,11 @@ import { useLastSixMonthData } from "@hooks/useLastSixMonthData";
 import { useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-export const LastExpenses = () => {
+interface IAddNewStickyNoteProps {
+    defaultStyle: string,
+}
+
+export const LastExpenses: React.FC<IAddNewStickyNoteProps> = ({ defaultStyle }) => {
     const { differencePerMonth, expenseTotal, incomeTotal } = useLastSixMonthData();
     const [selectedCategory, setSelectedCategory] = useState<string>("difference");
 
@@ -21,45 +25,45 @@ export const LastExpenses = () => {
             case "income":
                 return Object.keys(incomeTotal).map(key => ({
                     monthYear: key,
-                    valor: incomeTotal[key] ?? 0
+                    Valor: incomeTotal[key] ?? 0
                 }));
             case "expense":
                 return Object.keys(expenseTotal).map(key => ({
                     monthYear: key,
-                    valor: expenseTotal[key] ?? 0
+                    Valor: expenseTotal[key] ?? 0
                 }));
             case "difference":
             default:
                 return Object.keys(differencePerMonth).map(key => ({
                     monthYear: key,
-                    valor: differencePerMonth[key] ?? 0
+                    Valor: differencePerMonth[key] ?? 0
                 }));
         }
     };
 
     return (
-        <section id="lastExpenses" className="flex-1 h-72 bg-zinc-900 rounded-md border border-white p-2 flex min-w-60 flex-col gap-2">
+        <section id="lastExpenses" className={defaultStyle}>
             <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Gráficos de Desempenho Financeiro</h2>
-                <select
-                    onChange={handleChangeCategory}
-                    value={selectedCategory}
-                    name="category"
-                    className="bg-zinc-800 rounded-md border px-1 h-8"
-                >
-                    {dataOptions.map((option) =>
-                        <option key={option.type} value={option.type}>
-                            {option.message}
-                        </option>
-                    )}
-                </select>
-            <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={getChartData()}>
+            <select
+                onChange={handleChangeCategory}
+                value={selectedCategory}
+                name="category"
+                className="bg-zinc-800 rounded-md border px-1 h-8"
+            >
+                {dataOptions.map((option) =>
+                    <option key={option.type} value={option.type}>
+                        {option.message}
+                    </option>
+                )}
+            </select>
+            <ResponsiveContainer width="96%" height="100%">
+                <BarChart data={getChartData()} margin={{bottom: 10}}>
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="monthYear" />
+                    <XAxis dataKey="monthYear" height={70} angle={90} textAnchor="start"/>
                     <YAxis />
                     <Tooltip formatter={(value: number) => `R$ ${value.toFixed(2)}`} />
                     <Legend />
-                    <Bar dataKey="valor" fill="#8884d8" />
+                    <Bar dataKey="Valor" fill="#8884d8" />
                 </BarChart>
             </ResponsiveContainer>
         </section>

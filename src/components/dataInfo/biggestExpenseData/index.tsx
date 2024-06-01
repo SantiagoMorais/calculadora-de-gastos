@@ -1,6 +1,10 @@
 import { useBiggestMonthlyExpense } from "@hooks/useBiggestMonthlyExpense"
 
-export const BiggestExpenseData = () => {
+interface IAddNewStickyNoteProps {
+    defaultStyle: string,
+}
+
+export const BiggestExpenseData: React.FC<IAddNewStickyNoteProps> = ({defaultStyle}) => {
     const biggestMontlyExpenseData = useBiggestMonthlyExpense();
 
     const renderTotalValue = biggestMontlyExpenseData?.totalValue.toFixed(2);
@@ -13,7 +17,7 @@ export const BiggestExpenseData = () => {
     const dataStyle = "capitalize border-r flex-1 text-center"
     
     return (
-        <section id="biggestExpenseData" className="flex-1 h-72 bg-zinc-900 rounded-md border border-white p-2 flex min-w-60 flex-col gap-2">
+        <section id="biggestExpenseData" className={defaultStyle}>
             <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Maior gasto mensal</h2>
             <div className="flex flex-col gap-1">
                 <p className="capitalize flex justify-center items-center text-lg flex-wrap gap-2">

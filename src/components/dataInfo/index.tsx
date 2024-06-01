@@ -2,10 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { AddNewStickyNote } from "./addNewStickyNote"
 import { BiggestExpenseData } from "./biggestExpenseData"
 import { faCircle } from "@fortawesome/free-solid-svg-icons"
-import { CheckedStickyNotes } from "./checkedStickyNotes"
 import { LastExpenses } from "./lastExpenses"
+import { ExpensesChart } from "./expensesChart"
 
 export const DataInfo = () => {
+    const defaultStyle = "flex-1 h-96 bg-zinc-900 rounded-md border border-white p-2 flex min-w-72 flex-col gap-2"
 
     return (
         <section id="informations" className="flex w-screen justify-center flex-col items-center">
@@ -15,10 +16,10 @@ export const DataInfo = () => {
                 <FontAwesomeIcon icon={faCircle} className="text-sm" />
             </h2>
             <div className="w-full max-w-screen-xl px-4 grid gap-4 grid-cols-1 sm:grid-cols-2">
-                <BiggestExpenseData />
-                <LastExpenses />
-                <AddNewStickyNote />
-                <CheckedStickyNotes />
+                <LastExpenses defaultStyle={defaultStyle} />
+                <ExpensesChart defaultStyle={defaultStyle} />
+                <BiggestExpenseData defaultStyle={defaultStyle} />
+                <AddNewStickyNote defaultStyle={defaultStyle} />
             </div>
         </section>
     )

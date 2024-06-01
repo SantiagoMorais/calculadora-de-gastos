@@ -29,14 +29,20 @@ export const steps = [
         disableBeacon: true,
     },
     {
-        target: "#biggestExpenseData",
-        content: "Visualize onde você está gastando mais dinheiro.",
+        target: "#lastExpenses",
+        content: "Explore gráficos com seus dados financeiros dos últimos 6 meses.",
         placement: "top",
         disableBeacon: true,
     },
     {
-        target: "#lastExpenses",
-        content: "Explore gráficos com seus dados financeiros dos últimos 6 meses.",
+        target: "#expensesChart",
+        content: "Aqui vemos os dados das despesas do mês atual.",
+        placement: "top",
+        disableBeacon: true,
+    },
+    {
+        target: "#biggestExpenseData",
+        content: "Visualize onde você está gastando mais dinheiro.",
         placement: "top",
         disableBeacon: true,
     },
@@ -48,7 +54,7 @@ export const steps = [
     },
     {
         target: "#footer",
-        content: "Conecte-se comigo nas redes sociais para mais conteúdos sobre finanças.",
+        content: "Conecte-se comigo nas redes sociais para mais conteúdos sobre finanças. Aproveite o site!",
         placement: "top",
         disableBeacon: true,
     },
