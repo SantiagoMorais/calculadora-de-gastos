@@ -1,4 +1,4 @@
-import { faCircle, faSquare, faSquareCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faSquare, faSquareCheck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IStickyNotes, removeStickyNote, toggleCheckedStickyNote } from "@store/reducers/stickyNotes"
 import { useDispatch } from "react-redux";
@@ -26,10 +26,9 @@ export const StickyNote: React.FC<IStickyNotesProps> = ({stickyNotes, checkedOrU
     return (
         <>
             {checkedOrUnchecked === "checked" &&
-                <h2 className="capitalize  flex items-center gap-2 rounded-md px-2 font-medium">
-                    <FontAwesomeIcon icon={faCircle} className="size-3"/>
+                <h2 className="capitalize flex items-center gap-2 rounded-md px-1 font-medium w-full whitespace-nowrap">
                     {checkedOrUnchecked === "checked" ? "Lembretes finalizados" : "Adicione lembretes"}
-                    <FontAwesomeIcon icon={faCircle} className="size-3"/>
+                    <span className="w-full bg-white h-px"></span>
                 </h2>
             }
         <div className="border-t border-b max-h-full overflow-y-scroll flex-1 border-l rounded-md overflow-hidden">

@@ -18,7 +18,7 @@ export const BiggestExpenseData: React.FC<IAddNewStickyNoteProps> = ({defaultSty
     
     return (
         <section id="biggestExpenseData" className={defaultStyle}>
-            <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Maior gasto mensal</h2>
+            <h2 className="mb-1 text-base w-full border-b h-fit capitalize md:text-xl">Maior gasto mensal</h2>
             <div className="flex flex-col gap-1">
                 <p className="capitalize flex justify-center items-center text-lg flex-wrap gap-2">
                     {renderCategory}:<span className="bg-red-600 px-2 rounded-md border">R$ {renderTotalValue}</span>

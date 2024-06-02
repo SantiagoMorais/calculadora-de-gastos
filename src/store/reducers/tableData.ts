@@ -10,6 +10,7 @@ export interface INewData {
     description: string,
     value: string,
     valueOrigin: string,
+    period: number
 }
 
 const initialState: INewData[] = []

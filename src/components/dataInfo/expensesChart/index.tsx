@@ -26,7 +26,7 @@ export const ExpensesChart: React.FC<IAddNewStickyNoteProps> = ({ defaultStyle }
 
     return (
         <section id="expensesChart" className={defaultStyle}>
-            <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Gráficos de despesas - {renderCurrentDate}</h2>
+            <h2 className="mb-2 text-base w-full border-b h-fit capitalize md:text-xl">Gráficos de despesas - {renderCurrentDate}</h2>
 
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={getChartData()} margin={{bottom: 10}}>
@@ -35,7 +35,7 @@ export const ExpensesChart: React.FC<IAddNewStickyNoteProps> = ({ defaultStyle }
                     <YAxis />
                     <Tooltip formatter={(value: number) => `R$ ${value.toFixed(2)}`} />
                     <Legend />
-                    <Bar dataKey="Valor Total" fill="#8884d8" />
+                    <Bar dataKey="Valor Total" fill="#EF4444" />
                 </BarChart>
             </ResponsiveContainer>
         </section>

@@ -38,7 +38,7 @@ export const AddNewStickyNote: React.FC<IAddNewStickyNoteProps> = ({defaultStyle
 
     return (
         <section id="addNewStickyNites" className={`${defaultStyle}`}>
-            <h2 className="text-base w-full border-b h-fit capitalize md:text-xl">Adicione lembretes / tarefas</h2>
+            <h2 className="text-base w-full border-b h-fit capitalize mb-1 md:text-xl">Adicione lembretes / tarefas</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="relative">
                 <div className="flex gap-1 items-center mb-1">
                     <input

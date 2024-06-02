@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import data from "@json/data.json";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faExclamation, faSquare, faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 import { INewData, addNewData } from "@store/reducers/tableData";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@store/store";
 
 export const Form = () => {
     const [valueOrigin, setValueOrigin] = useState<string>("");
+    const [changePeriod, setChangePeriod] = useState<boolean>(false)
 
     const dispatch = useDispatch();
     const currentDate = useSelector((state: RootState) => state.newDate)
@@ -25,8 +26,25 @@ export const Form = () => {
     } = useForm<INewData>();
 
     const onSubmit: SubmitHandler<INewData> = (formData) => {
-        console.log(formData);
-        dispatch(addNewData(formData))
+        const period = Number(formData.period);
+        if (period > 1 && changePeriod) {
+            const newArray = Array.from({ length: period }, (_, index) => {
+                const month = formData.month + index;
+                const adjustedMonth = month > 12 ? month - 12 : month;
+                const adjustedYear = month > 12 ? formData.year + 1 : formData.year
+
+                return {
+                    ...formData,
+                    month: adjustedMonth,
+                    year: adjustedYear,
+                }
+            })
+            newArray.map(data =>
+                dispatch(addNewData(data))
+            )
+        } else {
+            dispatch(addNewData(formData))
+        }
     }
 
     const calculateTheDaysOfTheMonth = () => {
@@ -46,6 +64,10 @@ export const Form = () => {
     }
 
     const configureYearRender = (currentDate.currentYear).toFixed().slice(2);
+
+    const handleSetPeriod = () => {
+        setChangePeriod(!changePeriod)
+    }
 
     useEffect(() => {
         const categoryElement = document.getElementById("category") as HTMLSelectElement;
@@ -85,7 +107,7 @@ export const Form = () => {
                 ))}
             </div>
 
-            <div className={`opacity-0 max-h-0 duration-500 ${valueOrigin && "max-h-screen opacity-100 md:max-h-48"} w-full flex gap-x-4 gap-y-1 flex-wrap justify-center`}>
+            <div className={`opacity-0 max-h-0 duration-500 ${valueOrigin && "max-h-screen opacity-100 md:max-h-60"} w-full flex gap-x-4 gap-y-1 flex-wrap justify-center`}>
                 {valueOrigin && (
                     <>
                         <label htmlFor="category" className="flex flex-col w-full flex-1 min-w-40 max-w-sm ">
@@ -195,13 +217,44 @@ export const Form = () => {
                 )}
             </div>
 
-            <div className="flex gap-5 flex-wrap">
-                <button
-                    type="submit"
-                    className={`opacity-0 ${valueOrigin && "opacity-100"} border border-white bg-zinc-800 text-white rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-500 hover:shadow-inner hover:shadow-lime-700`}>
-                    Adicionar
-                </button>
+            <div className={`opacity-0 max-h-0 duration-500 ${changePeriod && "max-h-screen opacity-100 md:max-h-60"} flex flex-col items-center gap-2`}>
+                <label htmlFor="period" className="flex flex-col max-w-sm flex-1 min-w-40 capitalize">
+                    Período de recorrência:
+                    <select
+                        {...register("period")}
+                        id="period"
+                        disabled={!changePeriod}
+                        className="bg-zinc-800 w-full border bg-transparent mb-1 p-1 rounded-md h-8 mt-1">
+                        <option value="1" className="capitalize" selected>
+                            1 Mês (Mês Atual)
+                        </option>
+                        {Array.from({ length: 11 }, (_, i) =>
+                            <option value={i + 2} className="capitalize">
+                                {i + 2} Meses
+                            </option>
+                        )}
+                    </select>
+                </label>
+                <p className="bg-zinc-200 text-black py-1 px-2 rounded-lg border shadow-inner shadow-zinc-950 text-justify font-medium max-w-screen-sm md:text-lg">
+                    Adicionar o dado como saldo recorrente é para dados fixos, como o salário. Basta selecionar o período (até um ano), para que o dado seja adicionado também nos meses seguintes.
+                </p>
             </div>
+
+            <button
+                onClick={() => handleSetPeriod()}
+                type="button"
+                className={`z-10 text-center text-lg capitalize opacity-0 ${valueOrigin && "opacity-100"} flex items-center gap-2`}>
+                <FontAwesomeIcon
+                    className="w-8 h-8"
+                    icon={changePeriod ? faSquareCheck : faSquare} />
+                Adicionar como dado recorrente
+            </button>
+            <button
+                type="submit"
+                className={`opacity-0 z-10 ${valueOrigin && "opacity-100"} border border-white bg-zinc-800 text-white rounded-md px-4 mt-2 duration-500 hover: hover:text-white hover:border-white hover:bg-lime-500 hover:shadow-inner hover:shadow-lime-700 max-w-72`}>
+                Adicionar
+            </button>
+
         </form>
     );
 };

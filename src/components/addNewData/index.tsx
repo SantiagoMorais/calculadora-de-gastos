@@ -27,7 +27,7 @@ export const AddNewData = () => {
                 <p className="font-medium cursor-default">Adicione um novo dado</p>
             </div>
 
-            <div data-testid="formWindow" className={`w-full max-w-screen-xl px-4 flex flex-col items-center gap-2 justify-center duration-500 transition-all overflow-hidden ${openWindow ? "mt-4 max-h-screen opacity-100 md:max-h-48" : "opacity-0 max-h-0"}`}
+            <div data-testid="formWindow" className={`w-full max-w-screen-xl px-4 flex flex-col items-center gap-2 justify-center duration-500 transition-all overflow-hidden ${openWindow ? "mt-4 max-h-screen opacity-100 md:max-h-96" : "opacity-0 max-h-0"}`}
             >
                 <Form />
             </div>
