@@ -52,7 +52,7 @@ export const StickyNote: React.FC<IStickyNotesProps> = ({stickyNotes, checkedOrU
                         key={index}
                         className="flex w-full justify-between">
                         <p className="capitalize">{item.note}</p>
-                        <p className="px-2 text-center border-l">{renderDate(item.date.day, item.date.month, item.date.year)}</p>
+                        <p className="px-2 text-center border-l min-w-fit">{renderDate(item.date.day, item.date.month, item.date.year)}</p>
                     </div>
                 </div>
             )}

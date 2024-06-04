@@ -1,4 +1,4 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faTimes } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { INewData, removeTableData } from "@store/reducers/tableData"
 import { useDispatch } from "react-redux"
@@ -64,7 +64,7 @@ export const DataTable: React.FC<IDataTableProps> = ({ color, info }) => {
                             <button
                                 onClick={() => handleDeleteData(data.id)}
                                 className="absolute w-5 -right-5 text-white opacity-20 transition-all duration-300 hover:opacity-100 hover:text-red-500">
-                                <FontAwesomeIcon icon={faXmark} />
+                                <FontAwesomeIcon icon={faTimes} />
                             </button>
                             <p className={dataStyle}>{data.category}</p>
                             <p className={dataStyle}>{renderDate("day", data.day)}/{renderDate("month", data.month)}/{renderDate("year", data.year)}</p>

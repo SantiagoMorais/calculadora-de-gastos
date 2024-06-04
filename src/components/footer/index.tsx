@@ -20,7 +20,7 @@ export const Footer = () => {
     ];
 
     return (
-        <section id="footer" className="w-screen flex justify-center mt-10 bg-zinc-900">
+        <section id="contact" className="w-screen flex justify-center mt-10 bg-zinc-900">
             <div className="w-full max-w-screen-xl flex flex-col justify-center flex-wrap items-center gap-2 p-4">
                 <div className="flex flex-col items-center w-full">
                     <img 

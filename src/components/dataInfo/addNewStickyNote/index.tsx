@@ -45,14 +45,14 @@ export const AddNewStickyNote: React.FC<IAddNewStickyNoteProps> = ({defaultStyle
                         {...register("note", {
                             required: "Descreva seu lembrete",
                             maxLength: {
-                                value: 20,
-                                message: "Até 20 Caracteres"
+                                value: 50,
+                                message: "Até 50 Caracteres"
                             }
                         })}
                         type="text"
                         placeholder="Descreva seu lembrete"
                         className="w-full border bg-zinc-800 p-1 rounded-md h-8"
-                        maxLength={20}
+                        maxLength={50}
                     />
                     <button
                         type="submit"
