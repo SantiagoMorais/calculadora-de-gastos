@@ -10,12 +10,16 @@ export const useDataFilteredByDate = () => {
         const currentMonth = currentDate.currentMonth.number;
         const currentYear = currentDate.currentYear;
 
-        return tablesData.filter(data => {
+        const filteredData = tablesData.filter(data => {
             const dataMonth = data.month;
             const dataYear = data.year;
 
             return currentMonth === dataMonth && currentYear === dataYear;
         })
+
+        const sortedData = filteredData.sort((a, b) => a.day - b.day);
+
+        return sortedData;
     }, [currentDate, tablesData])
 
     return dataFiltered

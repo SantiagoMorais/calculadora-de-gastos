@@ -83,7 +83,7 @@ export const AddNewData = () => {
                             </h2>
                             <button
                                 onClick={handleDeleteDataWindow}
-                                className="w-7 bg-zinc-800 text-white rounded-md duration-500 hover:bg-lime-600">
+                                className="w-7 bg-zinc-800 text-white rounded-md duration-500 hover:bg-red-500">
                                 <FontAwesomeIcon icon={faTimes} />
                             </button>
                         </div>

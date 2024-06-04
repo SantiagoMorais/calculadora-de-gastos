@@ -53,8 +53,8 @@ export const steps = [
         disableBeacon: true,
     },
     {
-        target: "#footer",
-        content: "Conecte-se comigo nas redes sociais para mais conteúdos sobre finanças. Aproveite o site!",
+        target: "#contacts",
+        content: "Conecte-se comigo nas redes sociais. Aproveite o site!",
         placement: "top",
         disableBeacon: true,
     },

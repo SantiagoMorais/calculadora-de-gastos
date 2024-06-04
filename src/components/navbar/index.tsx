@@ -11,7 +11,7 @@ export const NavBar = () => {
         <section className="w-screen flex justify-center">
             <div className="w-full max-w-screen-xl flex flex-col border-b justify-center flex-wrap items-center gap-2 p-4 w-1/1 md:flex-row md:justify-between">
                 <h1 className="font-medium capitalize text-2xl flex flex-col items-center text-center md:flex-row md:gap-2">
-                    <img src={logo} alt="logo" className="w-20 rounded-full h-20 border-2 border-lime-600" />
+                    <img src={logo} alt="logo" className="w-20 rounded-full h-20" />
                     Farol financeiro
                 </h1>
                 <ul className="flex gap-3 flex-wrap justify-center">
