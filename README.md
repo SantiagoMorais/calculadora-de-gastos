@@ -26,7 +26,7 @@
 - To create a website that permit the user analyse clearly his personal financies
 - To add "income" or "expense" data to the tables and to visualize the final income
 - Be able to delete these data, if necessary.
-- To filter data by date throught timeline.
+- To filter data by date through timeline.
 - Sections with extra informations:
   - Last six month data: A chart with the last six month income, expense or total income.
   - Monthly expense chart
@@ -62,12 +62,12 @@ The main objective for this project is to make easier to visualize our personal 
 In the form, the user can set:
 - origin: income or expense data
 - category: as salary, shopping, health, etc
-- date: it's possible to add data to current date, past and future date
+- date: it's possible to add data to current, past and future date
 - description: to help us to remember exactly what that data came from
 - value: the cost of the income or expense data
 - period: optional - to add as recurrent data (as salary, for example, that usualy is the same montlhy)
 
-When the form is submitted, the react-hook-form runs the function onSubmit. It is responsible to add the data to the current month and to the next months, if the data was added as a recurrent data, and add it to the store at Redux.
+When the form is submitted, the react-hook-form runs the function onSubmit. It is responsible to add the data to the current month and to the next months, if the data was added as a recurrent data, and add it to the store in Redux.
 
 ```tsx
     const onSubmit: SubmitHandler<INewData> = (formData) => {
@@ -92,7 +92,7 @@ When the form is submitted, the react-hook-form runs the function onSubmit. It i
         }
     }
 ```
-The data is added to the Redux store from the hook `useDispatch`, that executes custom functions. In this project, it was used the functions `addNewData`, that receives as parameter the data in `INewData` format, that is the data interface, and `removeTableData`, that receives the id of the data that must be deleted.
+The data is added to the Redux store from the hook `useDispatch`, that executes custom functions. In this project, it was used the functions `addNewData`, that receives as parameter the data, in `INewData` format, that is the data interface, and `removeTableData`, that receives the id of the data that must be deleted.
 
 #### TablesData store's interface
 ```ts
@@ -132,9 +132,9 @@ const currentDate: ICurrentDate = {
 }
 ```
 
-Thought this state, we can acess the month and the year selected by the user and the month as number (03) or string ("March").
+Through this state, we can acess the month and the year selected by the user and the month as number (03) or string ("March").
 
-Using these stores, and receiving the data from form, we use these informations into some custom hooks:
+Using these stores, and receiving the data from the form, we use these informations into some custom hooks:
 
 ### 1. useDataFilteredByDate
 
@@ -152,7 +152,7 @@ This hook returns the data sorted by the days of the month.
 
 ### 2. useBiggestMontlhyExpense
 
-This hook returns the data expense category that has the biggest cost, the list of datas of this category in the specific month/year selected by the user and the total cost.
+This hook returns the category of data expense that has the biggest cost, the list of datas of this category in the specific month/year selected by the user and the total cost.
 
 ```ts
 interface IBiggestMonthlyExpense {
@@ -190,7 +190,7 @@ interface ICategoryExpense {
 }
 ```
 
-All these hooks are used to created the additional informations' section, that is render to the user on this way:
+All these hooks are used to created the "additional informations" section, that is render to the user on this way:
 
 <img src="./src/assets/screenshots/AdditionalData.png" />
 
@@ -216,7 +216,7 @@ Result:
 
 <img src="./src/assets/screenshots/tailwindElements.png" alt="element stylized by tailwind" />
 
-That must be terrible at first seem, but that is easy and I'll sumarize:
+That must be terrible at first seem, but that is easy. There is here a sumarize:
 - flex = display: flex;
 - flex-col = flex-direction: collumn;
 - items-center = align-items: center;
@@ -224,9 +224,9 @@ That must be terrible at first seem, but that is easy and I'll sumarize:
 - text-center = text-align: center;
 - capitalize = text-transform: capitalize;
 
-The utility-classes from tailwind don't have the same syntax of the traditional css styles, but they are similar, as "flex" and "display: flex". For them that are used to CSS, in just litte time are capable to domain [Tailwind CSS](https://tailwindcss.com).
+The utility-classes from tailwind don't have the same syntax of the traditional CSS styles, but they are similar, as "flex" and "display: flex". For those who are users of CSS, in just a few time, will be able to domain [Tailwind CSS](https://tailwindcss.com).
 
-Last, but not least, the website has a lot of informations, that this may scare the user. Thinking on it, the React-Joyride library is used to create a simple tutorial on where and how to use the website functionalities.
+Last, but not least, the website has a lot of informations, that may scare the user. Thinking on it, the React-Joyride library is used to create a simple tutorial on where and how to use the website functionalities.
 
 It is simple to be used, we have to create a file that contains the paths that it should follow.
 
@@ -247,8 +247,9 @@ export const steps = [
 ]
 ```
 
-- Target: Where the tutorial must focus on. Here we are using the id of a component, but it's also possible to use a class from an element, for example.
-- Content: The message that will be show to the user, to explain to him what to do.
+- Target: Where the tutorial must focus on. Here we are using the id of a component, but it's also possible to use a class from an element, for example
+- Content: The message that will be show to the user, to explain to him what to do
+- placement: Where the balloon of informations will be positioned
 - diseableBeacon: It is an option in React-Joyride that allows controlling the display of the visual highlight (beacon) around the target element during a tour, disabling it if needed to provide a more customized or straightforward user experience.
 
 There are a lot of other options to be used. Then, we can configure it using a component:
@@ -269,20 +270,9 @@ There are a lot of other options to be used. Then, we can configure it using a c
           />
 ```
 
-All of these props can be found the explanation on the docummentation [here](https://docs.react-joyride.com/props). But, in summarize, we are guiding it here it must be render, what must be used and to change the styles of the balloon of react-joyride. The final result is that:
+We can found the explanation of all these props on the docummentation [here](https://docs.react-joyride.com/props). But, in summarize, these props are used here to guide react-joyride on what must be render, what must be used and changing the styles of the balloon of react-joyride. The final result is that:
 
 <img src="./src/assets/screenshots/react-joy-ride.gif" alt="react joy ride final result"/>
-
-**globalStyle.tsx** - smooth scroll
-
-```tsx
-export const GlobalStyle = createGlobalStyle`
-// ...
-    html {
-        scroll-behavior: smooth;
-    }
-`
-```
 
 ### How to execute the project
 - The project was created with [React-Vite](https://vitejs.dev).
@@ -308,13 +298,13 @@ There are other ways to open the project, but that form it is the one that I'm u
 
 ### Continuous development
 
-The main focus on this project is to improve my knowledge using Redux and Tailwind CSS. I decided to learn these two technologies at the same time, so the development of it took me more time then I expect, but I also learn much more than I thoght. 
+The main focus on this project is to improve my knowledge using Redux and Tailwind CSS. I decided to learn these two technologies at the same time, so the development of it took me more time than I expect, but I also learn much more than I thoght. 
 
-Redux is a brilliant technology, but it's not necessary when the project is simple, because the Contect API can lead of it easily. But when the project is complex and huge, it is better.
+Redux is a brilliant technology, but it's not necessary when the project is simple, because the Context API can lead of it easily. But when the project is complex and huge, Redux is a better option.
 
-Tailwind CSS at the beggining took me a lot of time, because it is necessary to read the doccumentation every minute when we decide to use a new CSS property. But, after to use the same class-utility many times, we can remember easily what to use. After a while, even when we need to use a CSS property as a class-utility for the first time, we can suppose how to write it, because we can get used to the form how the creator think when he created the Tailwind.
+Tailwind CSS at the beggining took me a lot of time, because it is necessary to read the doccumentation every minute when we decide to use a new CSS property. But, after to use the same class-utility many times, we can remember easily what to use. After a while, even when we need to use a CSS property as a class-utility for the first time, we can suppose how to write it, because we can get used to the form of how the creator think when he created the Tailwind.
 
-A plugin that helps me a lot was [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) that gives some hints to help us when we are writing our utility classes. I huge recommend it to them who are starting now their learning journey with Tailwind.
+A plugin that helps me a lot is [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) that gives some hints to help us when we are writing our utility classes. I huge recommend it to them who are starting now their learning journey with Tailwind.
 
 ### Useful Resources
 
