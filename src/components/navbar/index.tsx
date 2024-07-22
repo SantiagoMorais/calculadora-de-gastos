@@ -4,7 +4,7 @@ export const NavBar = () => {
     const items = [
         { name: "tabelas", link: "tables" },
         { name: "informações", link: "informations" },
-        { name: "contato", link: "contact" },
+        { name: "contato", link: "contacts" },
     ]
 
     return (
